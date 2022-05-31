@@ -1,8 +1,12 @@
 <launch>
     <arg name="port"                default="/dev/input/LDS01"/>
     <arg name="frame_id"            default="laser"/>
+    <arg name="use_static_tf"       default="true"/>
+    
     <node pkg="hls_lfcd_lds_driver" type="hlds_laser_publisher" name="hlds_laser_publisher" output="screen">
         <param name="port"          value="$(arg port)"/>
         <param name="frame_id"      value="$(arg frame_id)"/>
     </node>
+
+    <node if="$(arg use_static_tf)" pkg="tf" type="static_transform_publisher" name="robot2senser" args="0.00 0.0 0.0 0 0 0 base_footprint $(arg frame_id)  100" />
 </launch>
