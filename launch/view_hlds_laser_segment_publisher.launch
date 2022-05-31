@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find lds_01_ros)/launch/hlds_laser_segment.launch" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lds_01_ros)/rviz/hlds_laser.rviz" />
+</launch>
