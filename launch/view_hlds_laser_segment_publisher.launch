@@ -1,4 +1,14 @@
 <launch>
-    <include file="$(find lds_01_ros)/launch/hlds_laser_segment.launch" />
+    <arg name="port"                default="/dev/input/LDS01"/>
+    <arg name="baud_rate"           default="230400"/>
+    <arg name="frame_id"            default="laser"/>
+    <arg name="use_static_tf"       default="true"/>
+
+    <include file="$(find lds_01_ros)/launch/hlds_laser_segment.launch">
+        <arg name="port"                value="$(arg port)"/>
+        <arg name="baud_rate"           value="$(arg baud_rate)"/>
+        <arg name="frame_id"            value="$(arg frame_id)"/>
+        <arg name="use_static_tf"       value="$(arg use_static_tf)"/>
+    </include>
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lds_01_ros)/rviz/hlds_laser.rviz" />
 </launch>
