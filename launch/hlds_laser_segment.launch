@@ -1,6 +1,8 @@
 <launch>
+    <arg name="port"                default="/dev/input/LDS01"/>
+    <arg name="frame_id"            default="laser"/>
     <node pkg="hls_lfcd_lds_driver" type="hlds_laser_segment_publisher" name="hlds_laser_segment_publisher" output="screen">
-        <param name="port" value="/dev/input/LDS01"/>
-        <param name="frame_id" value="laser"/>
+        <param name="port"          value="$(arg port)"/>
+        <param name="frame_id"      value="$(arg frame_id)"/>
     </node>
 </launch>
