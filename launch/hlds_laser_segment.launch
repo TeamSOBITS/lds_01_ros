@@ -8,5 +8,5 @@
         <param name="frame_id"      value="$(arg frame_id)"/>
     </node>
 
-    <node if="$(arg use_static_tf)" pkg="tf" type="static_transform_publisher" name="robot2senser" args="0.00 0.0 0.0 0 0 0 base_footprint $(arg frame_id)  10000" />
+    <node if="$(arg use_static_tf)" pkg="tf" type="static_transform_publisher" name="robot2senser" args="0.0 0.0 0.0 3.14 0 0 base_footprint $(arg frame_id)  1000" />
 </launch>
